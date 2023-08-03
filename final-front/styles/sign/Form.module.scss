@@ -1,0 +1,49 @@
+@use '../theme.scss';
+
+.not-logged-in {
+  width: 25rem;
+}
+
+.label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0;
+  border: 1px solid black;
+  padding: 0 0.5rem;
+}
+
+.buttons {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  height: 2rem;
+
+  button {
+    cursor: pointer;
+    flex-grow: 1;
+    border: none;
+    height: 2rem;
+  }
+}
+
+.log-in {
+  background-color: theme.$color-sunflower;
+  &:hover {
+    background-color: theme.$color-orange;
+  }
+}
+
+.sign-up {
+  background-color: theme.$color-carrot;
+  &:hover {
+    background-color: theme.$color-pumpkin;
+  }
+}

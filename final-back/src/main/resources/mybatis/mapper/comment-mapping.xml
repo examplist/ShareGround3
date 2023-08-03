@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.CommentDAO">
+	<resultMap id="writerMap" type="userdto">
+		<id property="email" column="email" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="photo" column="photo" />
+	</resultMap>
+	<resultMap id="commentMap" type="commentwriterdto">
+		<id property="id" column="id" />
+		<result property="content" column="content" />
+		<result property="time" column="time" />
+		<association property="writer" resultMap="writerMap" />
+	</resultMap>
+	<select id="selectComments" resultMap="commentMap" parameterType="string">
+		SELECT fp_comment.id AS id, content, time, name, photo FROM fp_comment
+			LEFT JOIN fp_user ON fp_comment.writer = fp_user.email
+    		WHERE article = #{articleid}
+    		ORDER BY time DESC;
+	</select>
+	
+	<insert id="insertComment" parameterType="commentdto">
+		INSERT INTO fp_comment (id, article, writer, content, time) VALUES (#{id}, #{article}, #{writer}, #{content}, now());
+	</insert>
+	
+	<delete id="deleteComment" parameterType="string">
+		DELETE FROM fp_comment WHERE id = #{id};
+	</delete>
+</mapper>

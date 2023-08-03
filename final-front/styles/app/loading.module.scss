@@ -1,0 +1,5 @@
+@use '../layout.scss';
+
+.loading {
+  @include layout.only-message;
+}

@@ -1,0 +1,92 @@
+@use '../layout.scss';
+@use '../theme.scss';
+
+.no-content {
+  @include layout.only-message;
+}
+
+.content {
+  min-height: calc(100vh - layout.$header-height - layout.$footer-height);
+  padding: 0 1rem;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+  padding: 0 1rem;
+
+  div {
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0 1rem;
+}
+
+.explanation {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  min-height: 12rem;
+  white-space: pre-line;
+  padding: 1rem;
+}
+
+.file {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    width: 8rem;
+    height: 2rem;
+    cursor: pointer;
+    background-color: theme.$color-sunflower;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: theme.$color-orange;
+    }
+  }
+}
+
+.edit-delete {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 2rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.comment-title {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+@media (max-width: layout.$screen-tiny) {
+  .section {
+    display: block;
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.InterestDAO">
+	<select id="selectCase" parameterType="interestdto" resultType="interestdto">
+		SELECT * FROM fp_interest
+			WHERE user = #{user} AND article = #{article};
+	</select>
+	<insert id="insertCase" parameterType="interestdto">
+		INSERT INTO fp_interest (article, user) VALUES (#{article}, #{user});
+	</insert>
+	<delete id="deleteCase" parameterType="interestdto">
+		DELETE FROM fp_interest
+			WHERE user = #{user} AND article = #{article};
+	</delete>
+	<select id="getArticlesByInterest" parameterType="articlelistinputdto" resultType="articledto">
+		SELECT article AS id, category, title, content, time, filename, filetype, fileurl, writer FROM fp_interest
+			JOIN fp_article ON fp_interest.article = fp_article.id
+		    WHERE fp_interest.user = #{value}
+		    ORDER BY time DESC
+		    LIMIT #{start}, #{limit};
+	</select>
+	<select id="getCountByUser" parameterType="string" resultType="int">
+		SELECT COUNT(*) FROM fp_interest WHERE user = #{user};
+	</select>
+</mapper>

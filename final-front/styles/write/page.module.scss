@@ -1,0 +1,10 @@
+@use '../layout.scss';
+
+.confirmed {
+  min-height: calc(100vh - layout.$header-height - layout.$footer-height);
+  padding: 2rem 1rem;
+}
+
+.not-confirmed {
+  @include layout.only-message;
+}

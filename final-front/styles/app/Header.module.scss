@@ -1,0 +1,56 @@
+@use '../layout.scss';
+@use '../theme.scss';
+
+$height: layout.$header-height;
+
+.header {
+  height: $height;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: theme.$color-clouds;
+  color: theme.$color-midnightblue;
+}
+
+.logo {
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+
+  a {
+    color: theme.$color-midnightblue;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    &:hover {
+      background-color: theme.$color-midnightblue;
+      color: theme.$color-clouds;
+    }
+  }
+}
+
+.empty2 {
+  flex-grow: 1;
+}
+
+.create {
+  margin-right: 1.25rem;
+  display: flex;
+  align-items: center;
+
+  a {
+    color: theme.$color-midnightblue;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: layout.$screen-tiny) {
+  .empty1 {
+    flex-grow: 1;
+  }
+  .empty2 {
+    flex-grow: 0;
+  }
+}

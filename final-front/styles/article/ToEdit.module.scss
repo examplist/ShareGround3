@@ -1,0 +1,10 @@
+@use '../theme.scss';
+
+.to-edit {
+  color: white;
+  background-color: theme.$color-amethyst;
+
+  &:hover {
+    background-color: theme.$color-wisteria;
+  }
+}

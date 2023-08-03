@@ -1,0 +1,17 @@
+@use '../layout.scss';
+@use '../theme.scss';
+
+.footer {
+  height: layout.$footer-height;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: theme.$color-clouds;
+
+  div {
+    margin: 0.5rem 0;
+    color: theme.$color-midnightblue;
+    font-weight: 500;
+  }
+}

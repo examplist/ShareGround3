@@ -1,0 +1,17 @@
+// 헤더, 푸터 높이
+$header-height: 5rem;
+$footer-height: 12rem;
+
+// 반응형
+$screen-tiny: 473px;
+$screen-small: 640px;
+$screen-medium: 768px;
+
+@mixin only-message {
+  min-height: calc(100vh - $header-height - $footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 1.5rem;
+}

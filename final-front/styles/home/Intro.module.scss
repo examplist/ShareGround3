@@ -1,0 +1,48 @@
+@use '../theme.scss';
+
+.section {
+  overflow-x: hidden;
+}
+
+@mixin article($background-color, $color, $way) {
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  transition: all 1s ease-in-out;
+  background-color: $background-color;
+  color: $color;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  @if $way == 'from-right' {
+    transform: translateX(90%);
+  } @else {
+    transform: translateX(-90%);
+  }
+
+  &.to-original-position {
+    transform: translateX(0);
+  }
+}
+
+.many-contents {
+  @include article(theme.$color-pomegranate, white, 'from-right');
+}
+
+.various-forms {
+  @include article(theme.$color-belizehole, white, 'from-left');
+}
+
+.reaction {
+  @include article(theme.$color-midnightblue, white, 'from-right');
+}

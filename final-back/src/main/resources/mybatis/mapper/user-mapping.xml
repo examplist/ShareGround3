@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.UserDAO">
+	<select id="login" resultType="userdto" parameterType="userdto">
+		SELECT * FROM fp_user WHERE email = #{email} AND pw = #{pw};
+	</select>
+	<insert id="signup" parameterType="userdto">
+		INSERT INTO fp_user (email, pw, name, photo) VALUES (#{email}, #{pw}, #{name}, null);
+	</insert>
+	<update id="changeUsername" parameterType="userdto">
+		UPDATE fp_user
+			SET name = #{name}
+			WHERE email = #{email};
+	</update>
+	<update id="changeUserphoto" parameterType="userdto">
+		UPDATE fp_user
+			SET photo = #{photo}
+			WHERE email = #{email};
+	</update>
+	<delete id="deleteAccount" parameterType="String">
+		DELETE FROM fp_user WHERE email = #{email};
+	</delete>
+</mapper>

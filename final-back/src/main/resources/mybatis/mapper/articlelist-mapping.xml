@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.ArticleListDAO">
+	<select id="getArticlesByCategory" parameterType="articlelistinputdto" resultType="articledto">
+		SELECT * FROM fp_article
+			WHERE category = #{value}
+			ORDER BY time DESC
+			LIMIT #{start}, #{limit};
+	</select>
+	<select id="getCountByCategory" parameterType="string" resultType="int">
+		SELECT COUNT(*) FROM fp_article WHERE category = #{category};
+	</select>
+	<select id="getArticlesByWriter" parameterType="articlelistinputdto" resultType="articledto">
+		SELECT * FROM fp_article
+			WHERE writer = #{value}
+			ORDER BY time DESC
+			LIMIT #{start}, #{limit};
+	</select>
+	<select id="getCountByWriter" parameterType="string" resultType="int">
+		SELECT COUNT(*) FROM fp_article WHERE writer = #{writer};
+	</select>
+	<select id="getSearchList" parameterType="string" resultType="articledto">
+		SELECT * FROM fp_article
+			WHERE title LIKE CONCAT('%',#{keyword},'%')
+			ORDER BY time DESC
+			LIMIT 10;
+	</select>
+</mapper>
