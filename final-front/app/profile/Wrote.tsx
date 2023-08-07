@@ -20,7 +20,10 @@ export default function Wrote() {
         return;
       }
       const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND + `/wrotelist/${email}/${currentPage}`
+        process.env.NEXT_PUBLIC_BACKEND + `/wrotelist/${email}/${currentPage}`,
+        {
+          cache: 'no-store',
+        }
       );
       const data = await response.json();
       if (!data.succeeded) {

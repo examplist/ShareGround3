@@ -32,7 +32,7 @@
 	</insert>
 	<update id="updateArticle" parameterType="articledto">
 		UPDATE fp_article
-			SET category=#{category}, title=#{title}, content=#{content}, time = now(),
+			SET category=#{category}, title=#{title}, content=#{content},
 				filename=#{filename}, filetype=#{filetype}, fileurl=#{fileurl}
 			WHERE id = #{id}; 
 	</update>

@@ -21,7 +21,10 @@ export default function InterestList() {
       }
       const response = await fetch(
         process.env.NEXT_PUBLIC_BACKEND +
-          `/interestlist/${email}/${currentPage}`
+          `/interestlist/${email}/${currentPage}`,
+        {
+          cache: 'no-store',
+        }
       );
       const data = await response.json();
       if (!data.succeeded) {

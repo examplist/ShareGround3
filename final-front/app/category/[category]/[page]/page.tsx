@@ -15,7 +15,10 @@ export default async function category({ params }: Props) {
   const { category, page } = params;
 
   const response = await fetch(
-    process.env.NEXT_PUBLIC_BACKEND + `/category/${category}/${page}`
+    process.env.NEXT_PUBLIC_BACKEND + `/category/${category}/${page}`,
+    {
+      cache: 'no-store',
+    }
   );
   const data = await response.json();
 
